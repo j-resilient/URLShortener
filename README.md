@@ -1,24 +1,8 @@
-# README
+## Summary
+Second full project in App Academy's SQL course, first project using Rails.  
+A command line URL shortener. Stores users by email.
+## Technology Stack  
+Ruby 2.5, Rails 5.2.4, Postgresql
+## How to use
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
