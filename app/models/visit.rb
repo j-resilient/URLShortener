@@ -8,6 +8,11 @@
 #  shortened_url_id :integer          not null
 #  user_id          :integer          not null
 #
+# Indexes
+#
+#  index_visits_on_shortened_url_id  (shortened_url_id)
+#  index_visits_on_user_id           (user_id)
+#
 
 class Visit < ApplicationRecord
     validates :user_id, :shortened_url_id, presence: true 
