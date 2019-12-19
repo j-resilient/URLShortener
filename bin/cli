@@ -1,0 +1,53 @@
+#!/usr/bin/env ruby
+
+# for some reason I cannot call an instance method from a class method
+
+class CLI
+  def run
+    @user = get_user
+    choice = get_choice
+    choice == "0" ? create_short_url : get_short_url
+    puts "Goodbye!"
+  end
+
+  def get_user
+    user = nil 
+    while user.nil?
+      puts "Input email: "
+      print "> "
+      email = gets.chomp
+      user = User.where(["email = ?", email]).first
+    end
+    user
+  end
+
+  def get_choice
+    puts "What do you want to do?"
+    puts "0. Create shortened URL"
+    puts "1. Visit Shortened URL"
+    print "> "
+    choice = gets.chomp
+    ["0", "1"].include?(choice) ? (return choice) : get_choice
+  end
+
+  def create_short_url
+    puts "Type in your long url"
+    print "> "
+    url = gets.chomp
+    short = ShortenedUrl.create_for_user_and_long_url!(@user.id, url)
+    puts short
+  end
+
+  def get_short_url
+    # try to get long url
+    long = nil;
+    while long.nil?
+      puts "Type in the shortened URL"
+      short = gets.chomp
+      long = ShortenedUrl.where(["user_id = ? and short_url = ?", @user.id, short])
+    end
+    Visit.record_visit!(@user, long.first)
+    Launchy.open(long.first.long_url)
+  end
+end
+CLI.new.run

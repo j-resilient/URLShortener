@@ -38,11 +38,13 @@ class ShortenedUrl < ApplicationRecord
         source: :user
 
     def self.create_for_user_and_long_url!(user_id, long_url)
+        short_url = ShortenedUrl.random_code
         ShortenedUrl.create! ({
             user_id: user_id,
             long_url: long_url,
-            short_url: ShortenedUrl.random_code
+            short_url: short_url
         })
+        short_url
     end
 
     def self.random_code
