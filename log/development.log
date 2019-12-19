@@ -597,3 +597,84 @@ Migrating to AddIndicesToVisits (20191218161754)
   [1m[36mShortenedUrl Load (1.2ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" INNER JOIN "visits" ON "shortened_urls"."id" = "visits"."shortened_url_id" WHERE "visits"."user_id" = $1[0m  [["user_id", 2]]
   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mShortenedUrl Load (0.4ms)[0m  [1m[34mSELECT DISTINCT "shortened_urls".* FROM "shortened_urls" INNER JOIN "visits" ON "shortened_urls"."id" = "visits"."shortened_url_id" WHERE "visits"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mUser Load (40.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (email = 'a@a.com') ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ bin/cli:19
+  [1m[36mShortenedUrl Exists (27.3ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "qrKYv2BQS9rGMZnKFyw_-g"], ["LIMIT", 1]]
+  ↳ app/models/shortened_url.rb:52
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/shortened_url.rb:42
+  [1m[36mShortenedUrl Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html#method-i-where"], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/models/shortened_url.rb:42
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/shortened_url.rb:42
+  [1m[36mShortenedUrl Create (55.3ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "qrKYv2BQS9rGMZnKFyw_-g"], ["long_url", "https://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html#method-i-where"], ["user_id", 3], ["created_at", "2019-12-19 16:12:52.548781"], ["updated_at", "2019-12-19 16:12:52.548781"]]
+  ↳ app/models/shortened_url.rb:42
+  [1m[35m (8.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/shortened_url.rb:42
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (email = 'a@a.com') ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ bin/cli:19
+  [1m[36mShortenedUrl Load (0.7ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE (short_url = 'qrKYv2BQS9rGMZnKFyw_-g') LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ bin/cli:49
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (email = 'a@a.com') ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ bin/cli:19
+  [1m[36mShortenedUrl Load (1.5ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE (short_url = 'qrKYv2BQS9rGMZnKFyw_-g') LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ bin/rails:9
+  [1m[36mShortenedUrl Load (0.7ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE (short_url = 'qrKYv2BQS9rGMZnKFyw_-g') LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/ladybug/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mShortenedUrl Load (0.6ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE (short_url = 'qrKYv2BQS9rGMZnKFyw_-g')[0m
+  [1m[36mShortenedUrl Load (1.0ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE (short_url = 'qrKYv2BQS9rGMZnKFyw_-g')[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (email = 'a@a.com') ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ bin/cli:19
+  [1m[36mShortenedUrl Load (0.9ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE (user_id = 3 and short_url = 'qrKYv2BQS9rGMZnKFyw_-g') ORDER BY "shortened_urls"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ bin/cli:49
+  [1m[36mShortenedUrl Load (0.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls"[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mShortenedUrl Load (0.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls"[0m
+  [1m[36mShortenedUrl Load (0.5ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (43.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 9]]
+  [1m[36mShortenedUrl Load (1.0ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(DISTINCT "users"."id") FROM "users" INNER JOIN "visits" ON "users"."id" = "visits"."user_id" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 9]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (email = 'a@a.com') ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ bin/cli:19
+  [1m[36mShortenedUrl Load (1.4ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE (user_id = 3 and short_url = 'qrKYv2BQS9rGMZnKFyw_-g') ORDER BY "shortened_urls"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ bin/cli:49
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (email = 'a@a.com') ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ bin/cli:19
+  [1m[36mShortenedUrl Load (1.2ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE (user_id = 3 and short_url = 'qrKYv2BQS9rGMZnKFyw_-g') ORDER BY "shortened_urls"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ bin/cli:49
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (email = 'a@a.com') ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ bin/cli:19
+  [1m[36mShortenedUrl Load (1.0ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE (user_id = 3 and short_url = 'qrKYv2BQS9rGMZnKFyw_-g') ORDER BY "shortened_urls"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ bin/cli:49
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (email = 'a@a.com') ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ bin/cli:19
+  [1m[36mShortenedUrl Load (0.6ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE (user_id = 3 and short_url = 'qrKYv2BQS9rGMZnKFyw_-g') ORDER BY "shortened_urls"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ bin/cli:49
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/visit.rb:31
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/visit.rb:31
+  [1m[36mShortenedUrl Load (0.3ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/models/visit.rb:31
+  [1m[36mVisit Create (10.5ms)[0m  [1m[32mINSERT INTO "visits" ("user_id", "shortened_url_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["shortened_url_id", 9], ["created_at", "2019-12-19 17:01:33.740588"], ["updated_at", "2019-12-19 17:01:33.740588"]]
+  ↳ app/models/visit.rb:31
+  [1m[35m (32.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/visit.rb:31
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (email = 'a@a.com') ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ bin/cli:19
+  [1m[36mShortenedUrl Load (0.4ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE (user_id = 3 and short_url = 'qrKYv2BQS9rGMZnKFyw_-g') ORDER BY "shortened_urls"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ bin/cli:49
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/visit.rb:31
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/visit.rb:31
+  [1m[36mShortenedUrl Load (0.2ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/models/visit.rb:31
+  [1m[36mVisit Create (0.4ms)[0m  [1m[32mINSERT INTO "visits" ("user_id", "shortened_url_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["shortened_url_id", 9], ["created_at", "2019-12-19 17:01:48.623775"], ["updated_at", "2019-12-19 17:01:48.623775"]]
+  ↳ app/models/visit.rb:31
+  [1m[35m (18.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/visit.rb:31
+  [1m[36mShortenedUrl Load (0.3ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 9]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(DISTINCT "users"."id") FROM "users" INNER JOIN "visits" ON "users"."id" = "visits"."user_id" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 9]]
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(DISTINCT "visits"."user_id") FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at >= '2019-12-19 16:52:46.933409')[0m  [["shortened_url_id", 9]]
