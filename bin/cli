@@ -34,7 +34,7 @@ class CLI
     puts "Type in your long url"
     print "> "
     url = gets.chomp
-    short = ShortenedUrl.create_for_user_and_long_url!(@user.id, url)
+    short = ShortenedUrl.create_for_user_and_long_url!(@user, url)
     puts short
   end
 
