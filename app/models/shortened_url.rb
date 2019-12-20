@@ -36,6 +36,15 @@ class ShortenedUrl < ApplicationRecord
         -> { distinct },
         through: :visits,
         source: :user
+    
+    has_many :tags,
+        primary_key: :id,
+        foreign_key: :shortened_url_id,
+        class_name: 'Tagging'
+
+    has_many :tag_topics,
+        through: :tags,
+        source: :tag_topic
 
     def self.create_for_user_and_long_url!(user_id, long_url)
         short_url = ShortenedUrl.random_code

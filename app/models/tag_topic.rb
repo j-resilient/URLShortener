@@ -14,4 +14,21 @@
 
 class TagTopic < ApplicationRecord
     validates :tag_topic, presence: true, uniqueness: true
+
+    has_many :shortened_urls,
+        primary_key: :id,
+        foreign_key: :tag_topic_id,
+        class_name: 'Tagging'
+
+    has_many :urls,
+        through: :shortened_urls,
+        source: :shortened_url
+
+    # popular_links
+    # get all links for a topic
+    # sort by num_clicks : limit to 5
+
+    def popular_links
+        urls.sort_by { |url| -url.num_clicks }.take(5)
+    end
 end
