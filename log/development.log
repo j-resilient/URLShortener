@@ -678,3 +678,554 @@ Migrating to AddIndicesToVisits (20191218161754)
   [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 9]]
   [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(DISTINCT "users"."id") FROM "users" INNER JOIN "visits" ON "users"."id" = "visits"."user_id" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 9]]
   [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(DISTINCT "visits"."user_id") FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at >= '2019-12-19 16:52:46.933409')[0m  [["shortened_url_id", 9]]
+  [1m[35m (24.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4762635147840476445)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateTagTopics (20191220154835)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (270.6ms)[0m  [1m[35mCREATE TABLE "tag_topics" ("id" bigserial primary key, "tag_topic" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20191220154835_create_tag_topics.rb:3
+  [1m[35m (40.4ms)[0m  [1m[35mCREATE  INDEX  "index_tag_topics_on_tag_topic" ON "tag_topics"  ("tag_topic")[0m
+  ↳ db/migrate/20191220154835_create_tag_topics.rb:8
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191220154835"]]
+  ↳ bin/rails:9
+  [1m[35m (10.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (25.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(4762635147840476445)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4762635147840476445)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateTaggings (20191220155109)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (39.1ms)[0m  [1m[35mCREATE TABLE "taggings" ("id" bigserial primary key, "tag_topic_id" integer, "shortened_url_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20191220155109_create_taggings.rb:3
+  [1m[35m (30.6ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_tag_topic_id" ON "taggings"  ("tag_topic_id")[0m
+  ↳ db/migrate/20191220155109_create_taggings.rb:9
+  [1m[35m (30.3ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_shortened_url_id" ON "taggings"  ("shortened_url_id")[0m
+  ↳ db/migrate/20191220155109_create_taggings.rb:10
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191220155109"]]
+  ↳ bin/rails:9
+  [1m[35m (13.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4762635147840476445)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ladybug/.rbenv/versions/2.5.1/bin/annotate:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTagTopic Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "tag_topics" WHERE "tag_topics"."tag_topic" = $1 LIMIT $2[0m  [["tag_topic", "Ruby"], ["LIMIT", 1]]
+  [1m[36mTagTopic Create (0.5ms)[0m  [1m[32mINSERT INTO "tag_topics" ("tag_topic", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["tag_topic", "Ruby"], ["created_at", "2019-12-20 16:00:49.989478"], ["updated_at", "2019-12-20 16:00:49.989478"]]
+  [1m[35m (36.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTagTopic Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tag_topics" WHERE "tag_topics"."tag_topic" = $1 LIMIT $2[0m  [["tag_topic", "Rails"], ["LIMIT", 1]]
+  [1m[36mTagTopic Create (0.7ms)[0m  [1m[32mINSERT INTO "tag_topics" ("tag_topic", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["tag_topic", "Rails"], ["created_at", "2019-12-20 16:00:59.717264"], ["updated_at", "2019-12-20 16:00:59.717264"]]
+  [1m[35m (8.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTagTopic Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "tag_topics" WHERE "tag_topics"."tag_topic" = $1 LIMIT $2[0m  [["tag_topic", "Databases"], ["LIMIT", 1]]
+  [1m[36mTagTopic Create (0.7ms)[0m  [1m[32mINSERT INTO "tag_topics" ("tag_topic", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["tag_topic", "Databases"], ["created_at", "2019-12-20 16:01:11.585417"], ["updated_at", "2019-12-20 16:01:11.585417"]]
+  [1m[35m (8.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTagTopic Load (0.9ms)[0m  [1m[34mSELECT "tag_topics".* FROM "tag_topics"[0m
+  [1m[36mShortenedUrl Load (26.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTagging Create (1.2ms)[0m  [1m[32mINSERT INTO "taggings" ("tag_topic_id", "shortened_url_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["tag_topic_id", 2], ["shortened_url_id", 9], ["created_at", "2019-12-20 16:03:45.144351"], ["updated_at", "2019-12-20 16:03:45.144351"]]
+  [1m[35m (27.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTagTopic Load (0.9ms)[0m  [1m[34mSELECT "tag_topics".* FROM "tag_topics"[0m
+  [1m[36mTagTopic Load (0.7ms)[0m  [1m[34mSELECT "tag_topics".* FROM "tag_topics"[0m
+  [1m[36mTagging Load (1.0ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings"[0m
+  [1m[36mShortenedUrl Load (1.1ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTagging Create (0.5ms)[0m  [1m[32mINSERT INTO "taggings" ("tag_topic_id", "shortened_url_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["tag_topic_id", 1], ["shortened_url_id", 9], ["created_at", "2019-12-20 16:07:44.103796"], ["updated_at", "2019-12-20 16:07:44.103796"]]
+  [1m[35m (10.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTagging Load (1.4ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings"[0m
+  [1m[36mTagging Load (0.9ms)[0m  [1m[34mSELECT  "taggings".* FROM "taggings" ORDER BY "taggings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.3ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTagging Load (0.8ms)[0m  [1m[34mSELECT  "taggings".* FROM "taggings" ORDER BY "taggings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTagTopic Load (0.4ms)[0m  [1m[34mSELECT  "tag_topics".* FROM "tag_topics" WHERE "tag_topics"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTagging Load (0.4ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."shortened_url_id" = $1[0m  [["shortened_url_id", 9]]
+  [1m[36mTagTopic Load (0.8ms)[0m  [1m[34mSELECT  "tag_topics".* FROM "tag_topics" ORDER BY "tag_topics"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTagging Load (0.6ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."tag_topic_id" = $1[0m  [["tag_topic_id", 1]]
+  [1m[36mShortenedUrl Load (0.6ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.7ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTagTopic Load (0.6ms)[0m  [1m[34mSELECT "tag_topics".* FROM "tag_topics" INNER JOIN "taggings" ON "tag_topics"."id" = "taggings"."tag_topic_id" WHERE "taggings"."shortened_url_id" = $1[0m  [["shortened_url_id", 9]]
+  [1m[36mTagTopic Load (0.7ms)[0m  [1m[34mSELECT  "tag_topics".* FROM "tag_topics" ORDER BY "tag_topics"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" INNER JOIN "taggings" ON "shortened_urls"."id" = "taggings"."shortened_url_id" WHERE "taggings"."tag_topic_id" = $1[0m  [["tag_topic_id", 1]]
+  [1m[36mTagTopic Load (0.9ms)[0m  [1m[34mSELECT "tag_topics".* FROM "tag_topics"[0m
+  [1m[36mTagTopic Load (0.8ms)[0m  [1m[34mSELECT  "tag_topics".* FROM "tag_topics" ORDER BY "tag_topics"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" INNER JOIN "taggings" ON "shortened_urls"."id" = "taggings"."shortened_url_id" WHERE "taggings"."tag_topic_id" = $1[0m  [["tag_topic_id", 1]]
+  [1m[35m (36.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 9]]
+  [1m[36mTagTopic Load (0.7ms)[0m  [1m[34mSELECT  "tag_topics".* FROM "tag_topics" ORDER BY "tag_topics"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" INNER JOIN "taggings" ON "shortened_urls"."id" = "taggings"."shortened_url_id" WHERE "taggings"."tag_topic_id" = $1[0m  [["tag_topic_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 9]]
+  [1m[36mTagTopic Load (0.8ms)[0m  [1m[34mSELECT "tag_topics".* FROM "tag_topics"[0m
+  [1m[36mTagTopic Load (1.1ms)[0m  [1m[34mSELECT  "tag_topics".* FROM "tag_topics" WHERE "tag_topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.1ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" INNER JOIN "taggings" ON "shortened_urls"."id" = "taggings"."shortened_url_id" WHERE "taggings"."tag_topic_id" = $1[0m  [["tag_topic_id", 1]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 9]]
+  [1m[36mTagTopic Load (0.8ms)[0m  [1m[34mSELECT  "tag_topics".* FROM "tag_topics" WHERE "tag_topics"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.0ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" INNER JOIN "taggings" ON "shortened_urls"."id" = "taggings"."shortened_url_id" WHERE "taggings"."tag_topic_id" = $1[0m  [["tag_topic_id", 2]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 9]]
+  [1m[36mShortenedUrl Load (0.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls"[0m
+  [1m[36mTagging Load (0.5ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings"[0m
+  [1m[36mShortenedUrl Load (1.1ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls"[0m
+  [1m[36mUser Load (12.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "AmtSDvaFb9BwlYeYmGjyDw"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://genius.com/Lin-manuel-miranda-when-the-sun-goes-down-lyrics"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mShortenedUrl Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "qh5xFfCkZsV8Tf9AaiN8sA"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://genius.com/Lin-manuel-miranda-when-the-sun-goes-down-lyrics"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.2ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (create_at <= '2019-12-20 18:38:39.048759')[0m  [["user_id", 2]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mShortenedUrl Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "DT9CjUtJKwsm3WGwcmZuxg"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://genius.com/Lin-manuel-miranda-when-the-sun-goes-down-lyrics"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.2ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (create_at <= '2019-12-20 18:39:08.911593')[0m  [["user_id", 2]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mShortenedUrl Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "4ZDYU3uTvEo2bloBRiYxKw"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://genius.com/Lin-manuel-miranda-when-the-sun-goes-down-lyrics"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 18:39:23.823424')[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (8.2ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "4ZDYU3uTvEo2bloBRiYxKw"], ["long_url", "https://genius.com/Lin-manuel-miranda-when-the-sun-goes-down-lyrics"], ["user_id", 2], ["created_at", "2019-12-20 18:40:23.829357"], ["updated_at", "2019-12-20 18:40:23.829357"]]
+  [1m[35m (13.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "MY7LXcg2iEThD-3onrUx4A"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://genius.com/Lin-manuel-miranda-breathe-lyrics"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 18:39:41.462151')[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (0.7ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "MY7LXcg2iEThD-3onrUx4A"], ["long_url", "https://genius.com/Lin-manuel-miranda-breathe-lyrics"], ["user_id", 2], ["created_at", "2019-12-20 18:40:41.467374"], ["updated_at", "2019-12-20 18:40:41.467374"]]
+  [1m[35m (8.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "mGte3Bk9yLTdywksfG2UJQ"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://genius.com/Lin-manuel-miranda-no-me-diga-lyrics"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 18:39:55.940383')[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (0.7ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "mGte3Bk9yLTdywksfG2UJQ"], ["long_url", "https://genius.com/Lin-manuel-miranda-no-me-diga-lyrics"], ["user_id", 2], ["created_at", "2019-12-20 18:40:55.946006"], ["updated_at", "2019-12-20 18:40:55.946006"]]
+  [1m[35m (14.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "baFPaMqme5Kz0TeRujcP3Q"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://genius.com/Lin-manuel-miranda-96000-lyrics"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.7ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 18:40:10.698633')[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (0.7ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "baFPaMqme5Kz0TeRujcP3Q"], ["long_url", "https://genius.com/Lin-manuel-miranda-96000-lyrics"], ["user_id", 2], ["created_at", "2019-12-20 18:41:10.704094"], ["updated_at", "2019-12-20 18:41:10.704094"]]
+  [1m[35m (8.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "LvzGGCr9sHK-BnUUki9-IQ"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://genius.com/Lin-manuel-miranda-champagne-lyrics"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 18:40:23.111368')[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (0.4ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "LvzGGCr9sHK-BnUUki9-IQ"], ["long_url", "https://genius.com/Lin-manuel-miranda-champagne-lyrics"], ["user_id", 2], ["created_at", "2019-12-20 18:41:23.114691"], ["updated_at", "2019-12-20 18:41:23.114691"]]
+  [1m[35m (7.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "vmfT3dmUlQcMdRZszSLobQ"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "www.google.com"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 18:40:31.936478')[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (0.7ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "vmfT3dmUlQcMdRZszSLobQ"], ["long_url", "www.google.com"], ["user_id", 2], ["created_at", "2019-12-20 18:41:31.942035"], ["updated_at", "2019-12-20 18:41:31.942035"]]
+  [1m[35m (13.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "Y4-TzKyFFJaiTGV_p_ClFA"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "www.facebook.com"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.7ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 18:40:40.901207')[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (0.8ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "Y4-TzKyFFJaiTGV_p_ClFA"], ["long_url", "www.facebook.com"], ["user_id", 2], ["created_at", "2019-12-20 18:41:40.906730"], ["updated_at", "2019-12-20 18:41:40.906730"]]
+  [1m[35m (8.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "CWwSrrg3T4fGjQDW-wfqRA"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://genius.com/Evan-rachel-wood-all-is-found-lyrics"], ["user_id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.3ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 18:46:19.688889')[0m  [["user_id", 6]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (0.3ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "CWwSrrg3T4fGjQDW-wfqRA"], ["long_url", "https://genius.com/Evan-rachel-wood-all-is-found-lyrics"], ["user_id", 6], ["created_at", "2019-12-20 18:47:19.693076"], ["updated_at", "2019-12-20 18:47:19.693076"]]
+  [1m[35m (9.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "9E2-cdSbhJDFaDZnQCxQtA"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://genius.com/Josh-gad-kristen-bell-idina-menzel-jonathan-groff-and-cast-of-frozen-ii-some-things-never-change-lyrics"], ["user_id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 18:46:37.061125')[0m  [["user_id", 6]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (0.6ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "9E2-cdSbhJDFaDZnQCxQtA"], ["long_url", "https://genius.com/Josh-gad-kristen-bell-idina-menzel-jonathan-groff-and-cast-of-frozen-ii-some-things-never-change-lyrics"], ["user_id", 6], ["created_at", "2019-12-20 18:47:37.067383"], ["updated_at", "2019-12-20 18:47:37.067383"]]
+  [1m[35m (10.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "-un95uyAmOfTqcPItoFZeg"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://genius.com/Idina-menzel-into-the-unknown-lyrics"], ["user_id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.3ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 18:46:53.528014')[0m  [["user_id", 6]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (0.3ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "-un95uyAmOfTqcPItoFZeg"], ["long_url", "https://genius.com/Idina-menzel-into-the-unknown-lyrics"], ["user_id", 6], ["created_at", "2019-12-20 18:47:53.529940"], ["updated_at", "2019-12-20 18:47:53.529940"]]
+  [1m[35m (8.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "F3AZ1Q2se4RGIv_ZwYeF0w"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://genius.com/Josh-gad-when-i-am-older-lyrics"], ["user_id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 18:47:06.138211')[0m  [["user_id", 6]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (0.5ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "F3AZ1Q2se4RGIv_ZwYeF0w"], ["long_url", "https://genius.com/Josh-gad-when-i-am-older-lyrics"], ["user_id", 6], ["created_at", "2019-12-20 18:48:06.142005"], ["updated_at", "2019-12-20 18:48:06.142005"]]
+  [1m[35m (4.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "8Bl0fBz1M08XHSBAYgCVZA"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://genius.com/Jonathan-groff-reindeers-are-better-than-people-cont-lyrics"], ["user_id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 18:47:21.609614')[0m  [["user_id", 6]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (0.5ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "8Bl0fBz1M08XHSBAYgCVZA"], ["long_url", "https://genius.com/Jonathan-groff-reindeers-are-better-than-people-cont-lyrics"], ["user_id", 6], ["created_at", "2019-12-20 18:48:21.613425"], ["updated_at", "2019-12-20 18:48:21.613425"]]
+  [1m[35m (9.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "w0CvSfpJX7rOqUq2zEa_dQ"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://genius.com/Jonathan-groff-lost-in-the-woods-lyrics"], ["user_id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 18:47:33.483046')[0m  [["user_id", 6]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (0.5ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "w0CvSfpJX7rOqUq2zEa_dQ"], ["long_url", "https://genius.com/Jonathan-groff-lost-in-the-woods-lyrics"], ["user_id", 6], ["created_at", "2019-12-20 18:48:33.486609"], ["updated_at", "2019-12-20 18:48:33.486609"]]
+  [1m[35m (12.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "cA4ehRcMIFNzqXg3K_Ko2g"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://genius.com/Idina-menzel-and-evan-rachel-wood-show-yourself-lyrics"], ["user_id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.3ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 18:47:48.611566')[0m  [["user_id", 6]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (0.6ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "cA4ehRcMIFNzqXg3K_Ko2g"], ["long_url", "https://genius.com/Idina-menzel-and-evan-rachel-wood-show-yourself-lyrics"], ["user_id", 6], ["created_at", "2019-12-20 18:48:48.620403"], ["updated_at", "2019-12-20 18:48:48.620403"]]
+  [1m[35m (11.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "ynVeDCn81Ff7WTM8ZpNrxA"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://genius.com/Original-broadway-cast-of-beetlejuice-say-my-name-lyrics"], ["user_id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.2ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 18:50:56.746326')[0m  [["user_id", 4]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (0.3ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "ynVeDCn81Ff7WTM8ZpNrxA"], ["long_url", "https://genius.com/Original-broadway-cast-of-beetlejuice-say-my-name-lyrics"], ["user_id", 4], ["created_at", "2019-12-20 18:55:56.749433"], ["updated_at", "2019-12-20 18:55:56.749433"]]
+  [1m[35m (13.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "WDwtSR013609mfxXYXALcw"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://genius.com/Original-broadway-cast-of-beetlejuice-what-i-know-now-annotated"], ["user_id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 18:51:13.245027')[0m  [["user_id", 4]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (0.8ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "WDwtSR013609mfxXYXALcw"], ["long_url", "https://genius.com/Original-broadway-cast-of-beetlejuice-what-i-know-now-annotated"], ["user_id", 4], ["created_at", "2019-12-20 18:56:13.251734"], ["updated_at", "2019-12-20 18:56:13.251734"]]
+  [1m[35m (10.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "3ABcXpzgCzcVAbJqCEG57w"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://genius.com/Original-broadway-cast-of-beetlejuice-the-whole-being-dead-thing-pt-2-lyrics"], ["user_id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.7ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 18:51:28.829755')[0m  [["user_id", 4]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (0.8ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "3ABcXpzgCzcVAbJqCEG57w"], ["long_url", "https://genius.com/Original-broadway-cast-of-beetlejuice-the-whole-being-dead-thing-pt-2-lyrics"], ["user_id", 4], ["created_at", "2019-12-20 18:56:28.835130"], ["updated_at", "2019-12-20 18:56:28.835130"]]
+  [1m[35m (11.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "oiUTwqt73Nj906Fg9OFQZQ"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://genius.com/Original-broadway-cast-of-beetlejuice-no-reason-lyrics"], ["user_id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.7ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 18:51:45.476358')[0m  [["user_id", 4]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (0.8ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "oiUTwqt73Nj906Fg9OFQZQ"], ["long_url", "https://genius.com/Original-broadway-cast-of-beetlejuice-no-reason-lyrics"], ["user_id", 4], ["created_at", "2019-12-20 18:56:45.481684"], ["updated_at", "2019-12-20 18:56:45.481684"]]
+  [1m[35m (8.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "vmUyzTVVPUn3EGbLpeI4RQ"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://genius.com/Original-broadway-cast-of-beetlejuice-creepy-old-guy-lyrics"], ["user_id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 18:52:01.353476')[0m  [["user_id", 4]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (1.0ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "vmUyzTVVPUn3EGbLpeI4RQ"], ["long_url", "https://genius.com/Original-broadway-cast-of-beetlejuice-creepy-old-guy-lyrics"], ["user_id", 4], ["created_at", "2019-12-20 18:57:01.358391"], ["updated_at", "2019-12-20 18:57:01.358391"]]
+  [1m[35m (7.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "oiv1DK-7VLOaQjMU68sZ2g"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://genius.com/Original-broadway-cast-of-beetlejuice-the-whole-being-dead-thing-lyrics"], ["user_id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 18:52:17.404770')[0m  [["user_id", 4]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (1.1ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "oiv1DK-7VLOaQjMU68sZ2g"], ["long_url", "https://genius.com/Original-broadway-cast-of-beetlejuice-the-whole-being-dead-thing-lyrics"], ["user_id", 4], ["created_at", "2019-12-20 18:57:17.410107"], ["updated_at", "2019-12-20 18:57:17.410107"]]
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "czMlwc25CozwTkqyGnuzKA"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://open.appacademy.io/learn/full-stack-online/sql/custom-validations"], ["user_id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.6ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 19:03:10.113319')[0m  [["user_id", 4]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mShortenedUrl Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "QmeXZ-2bh5tuKLXyaO_Ksg"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://open.appacademy.io/learn/full-stack-online/sql/custom-validations"], ["user_id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 19:03:42.053125')[0m  [["user_id", 4]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mShortenedUrl Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "MpY3KDVjKLijKxUoqX0CMg"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://open.appacademy.io/learn/full-stack-online/sql/custom-validations"], ["user_id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.4ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 19:07:06.369557')[0m  [["user_id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4762635147840476445)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddPremiumColumnToUsers (20191220224813)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (149.8ms)[0m  [1m[35mALTER TABLE "users" ADD "premium" boolean DEFAULT FALSE[0m
+  ↳ db/migrate/20191220224813_add_premium_column_to_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191220224813"]]
+  ↳ bin/rails:9
+  [1m[35m (39.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(4762635147840476445)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.4ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mShortenedUrl Load (0.7ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.7ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.6ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 16]]
+  [1m[35m (12.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.7ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.7ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 15]]
+  [1m[35m (14.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.6ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 14]]
+  [1m[35m (12.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.0ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mShortenedUrl Load (1.0ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.7ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 29]]
+  [1m[35m (13.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 6]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 6]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.6ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 23]]
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.6ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 6]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 ORDER BY "shortened_urls"."id" DESC LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.9ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 22]]
+  [1m[35m (16.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 6]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 ORDER BY "shortened_urls"."id" DESC LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.8ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 21]]
+  [1m[35m (13.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 6]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "premium@premium.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (9.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "premium") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "premium@premium.com"], ["created_at", "2019-12-20 23:00:03.535087"], ["updated_at", "2019-12-20 23:00:03.535087"], ["premium", true]]
+  [1m[35m (46.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "UeFGm23qd_wPAnXui_VK2w"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://open.appacademy.io/learn/full-stack-online/sql/url-shortener"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 23:06:34.983000')[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "wKpnwGU9dOsLNkLI7gzYfQ"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://www.youtube.com/watch?v=gIOyB9ZXn8s"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 23:06:57.134345')[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "y4Hk67RXUKyeoDCLUhdaVw"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://www.youtube.com/watch?v=gIOyB9ZXn8s"], ["user_id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.6ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 23:07:49.104532')[0m  [["user_id", 7]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 7]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (0.4ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "y4Hk67RXUKyeoDCLUhdaVw"], ["long_url", "https://www.youtube.com/watch?v=gIOyB9ZXn8s"], ["user_id", 7], ["created_at", "2019-12-20 23:08:49.120217"], ["updated_at", "2019-12-20 23:08:49.120217"]]
+  [1m[35m (53.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "-PsFedoagfzq_UEixrFmLQ"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://open.appacademy.io/learn/full-stack-online/sql/custom-validations"], ["user_id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 23:08:52.968961')[0m  [["user_id", 7]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 7]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (0.6ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "-PsFedoagfzq_UEixrFmLQ"], ["long_url", "https://open.appacademy.io/learn/full-stack-online/sql/custom-validations"], ["user_id", 7], ["created_at", "2019-12-20 23:09:52.978083"], ["updated_at", "2019-12-20 23:09:52.978083"]]
+  [1m[35m (7.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "LfJ8oCC7W0oJTjNOErWmcQ"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://open.appacademy.io/learn/full-stack-online/sql/url-shortener"], ["user_id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.6ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 23:09:15.053752')[0m  [["user_id", 7]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 7]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (0.5ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "LfJ8oCC7W0oJTjNOErWmcQ"], ["long_url", "https://open.appacademy.io/learn/full-stack-online/sql/url-shortener"], ["user_id", 7], ["created_at", "2019-12-20 23:10:15.061210"], ["updated_at", "2019-12-20 23:10:15.061210"]]
+  [1m[35m (13.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "A7UAbzlOqzlPEKyQHgCweA"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://www.youtube.com/channel/UCMtFAi84ehTSYSE9XoHefig"], ["user_id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.6ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 23:09:31.486130')[0m  [["user_id", 7]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 7]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (0.5ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "A7UAbzlOqzlPEKyQHgCweA"], ["long_url", "https://www.youtube.com/channel/UCMtFAi84ehTSYSE9XoHefig"], ["user_id", 7], ["created_at", "2019-12-20 23:10:31.496001"], ["updated_at", "2019-12-20 23:10:31.496001"]]
+  [1m[35m (8.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "H-cjyGKd1TjChAvdKPHqMg"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://www.youtube.com/watch?v=8rx_zo1K864"], ["user_id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 23:10:04.805300')[0m  [["user_id", 7]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 7]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (0.6ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "H-cjyGKd1TjChAvdKPHqMg"], ["long_url", "https://www.youtube.com/watch?v=8rx_zo1K864"], ["user_id", 7], ["created_at", "2019-12-20 23:11:04.816994"], ["updated_at", "2019-12-20 23:11:04.816994"]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "wfSYwKetmTgzTGANJDu5Fg"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://www.youtube.com/watch?v=SjzFDYDVook"], ["user_id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.6ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 23:10:22.142409')[0m  [["user_id", 7]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 7]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "RtOsDegQARpoJf1EL2gkIQ"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://www.youtube.com/watch?v=SjzFDYDVook"], ["user_id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.0ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 23:11:05.578077')[0m  [["user_id", 7]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 7]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "Uj2N0gxFO1A17bmU0j3L3A"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://www.youtube.com/watch?v=SjzFDYDVook"], ["user_id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.4ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 23:11:11.593198')[0m  [["user_id", 7]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 7]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 7]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "e20SJcd_4f5vEEYcYSU_Pg"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://www.youtube.com/watch?v=SjzFDYDVook"], ["user_id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 23:13:05.803974')[0m  [["user_id", 7]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 7]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mShortenedUrl Load (0.4ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls"[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "fOCO5-ERuPrxaEIVmtlKtQ"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "https://www.youtube.com/watch?v=SjzFDYDVook"], ["user_id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.0ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2019-12-20 23:15:38.101925')[0m  [["user_id", 7]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 7]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m

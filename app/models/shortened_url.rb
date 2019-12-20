@@ -21,6 +21,8 @@ class ShortenedUrl < ApplicationRecord
         scope: :user_id,
         message: 'You have already shortened this URL.'
     }
+    validate :no_spamming
+    validate :nonpremium_max
 
     belongs_to :submitter,
         primary_key: :id,
@@ -36,11 +38,20 @@ class ShortenedUrl < ApplicationRecord
         -> { distinct },
         through: :visits,
         source: :user
+    
+    has_many :tags,
+        primary_key: :id,
+        foreign_key: :shortened_url_id,
+        class_name: 'Tagging'
 
-    def self.create_for_user_and_long_url!(user_id, long_url)
+    has_many :tag_topics,
+        through: :tags,
+        source: :tag_topic
+
+    def self.create_for_user_and_long_url!(user, long_url)
         short_url = ShortenedUrl.random_code
         ShortenedUrl.create! ({
-            user_id: user_id,
+            user_id: user.id,
             long_url: long_url,
             short_url: short_url
         })
@@ -65,5 +76,21 @@ class ShortenedUrl < ApplicationRecord
 
     def num_recent_uniques
         visits.where("created_at >= ?", 10.minutes.ago).select(:user_id).distinct.count
+    end
+
+    def no_spamming
+        # get all urls for user
+        user = User.find(user_id)
+        urls = user.submitted_urls.where("created_at <= ?", 1.minutes.ago)
+        if urls.length >= 5
+            errors[:user_id] << 'can\'t submit more than five URLs in a minute'
+        end
+    end
+
+    def nonpremium_max
+        user = User.find(user_id)
+        unless user.premium && user.submitted_urls.count <= 5
+            errors[:user_id] << 'only premium members can save more than 5 URLs'
+        end
     end
 end
