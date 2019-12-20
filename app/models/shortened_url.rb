@@ -22,6 +22,7 @@ class ShortenedUrl < ApplicationRecord
         message: 'You have already shortened this URL.'
     }
     validate :no_spamming
+    validate :nonpremium_max
 
     belongs_to :submitter,
         primary_key: :id,
@@ -77,13 +78,19 @@ class ShortenedUrl < ApplicationRecord
         visits.where("created_at >= ?", 10.minutes.ago).select(:user_id).distinct.count
     end
 
-    # debugger
     def no_spamming
         # get all urls for user
         user = User.find(user_id)
         urls = user.submitted_urls.where("created_at <= ?", 1.minutes.ago)
         if urls.length >= 5
             errors[:user_id] << 'can\'t submit more than five URLs in a minute'
+        end
+    end
+
+    def nonpremium_max
+        user = User.find(user_id)
+        unless user.premium && user.submitted_urls.count <= 5
+            errors[:user_id] << 'only premium members can save more than 5 URLs'
         end
     end
 end
