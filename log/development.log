@@ -1229,3 +1229,462 @@ Migrating to AddPremiumColumnToUsers (20191220224813)
   [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 7]]
   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
   [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mShortenedUrl Load (60.0ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls"[0m
+  [1m[36mShortenedUrl Load (0.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls"[0m
+  [1m[36mVisit Exists (51.8ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2020-01-06 16:13:48.481804') LIMIT $2[0m  [["shortened_url_id", 6], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2020-01-06 16:13:48.573056') LIMIT $2[0m  [["shortened_url_id", 7], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2020-01-06 16:13:48.576645') LIMIT $2[0m  [["shortened_url_id", 8], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2020-01-06 16:13:48.579949') LIMIT $2[0m  [["shortened_url_id", 9], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2020-01-06 16:13:48.583244') LIMIT $2[0m  [["shortened_url_id", 10], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2020-01-06 16:13:48.587379') LIMIT $2[0m  [["shortened_url_id", 11], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2020-01-06 16:13:48.590414') LIMIT $2[0m  [["shortened_url_id", 12], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2020-01-06 16:13:48.592956') LIMIT $2[0m  [["shortened_url_id", 13], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2020-01-06 16:13:48.595882') LIMIT $2[0m  [["shortened_url_id", 17], ["LIMIT", 1]]
+  [1m[36mVisit Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2020-01-06 16:13:48.598744') LIMIT $2[0m  [["shortened_url_id", 18], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2020-01-06 16:13:48.602171') LIMIT $2[0m  [["shortened_url_id", 19], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2020-01-06 16:13:48.605716') LIMIT $2[0m  [["shortened_url_id", 20], ["LIMIT", 1]]
+  [1m[36mVisit Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2020-01-06 16:13:48.608539') LIMIT $2[0m  [["shortened_url_id", 24], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2020-01-06 16:13:48.611653') LIMIT $2[0m  [["shortened_url_id", 25], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2020-01-06 16:13:48.613757') LIMIT $2[0m  [["shortened_url_id", 26], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2020-01-06 16:13:48.615784') LIMIT $2[0m  [["shortened_url_id", 27], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2020-01-06 16:13:48.617518') LIMIT $2[0m  [["shortened_url_id", 28], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2020-01-06 16:13:48.619034') LIMIT $2[0m  [["shortened_url_id", 30], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2020-01-06 16:13:48.620400') LIMIT $2[0m  [["shortened_url_id", 31], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2020-01-06 16:13:48.621705') LIMIT $2[0m  [["shortened_url_id", 32], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2020-01-06 16:13:48.622788') LIMIT $2[0m  [["shortened_url_id", 33], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2020-01-06 16:13:48.623862') LIMIT $2[0m  [["shortened_url_id", 34], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls"[0m
+  [1m[36mVisit Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2019-01-06 16:20:03.272098') LIMIT $2[0m  [["shortened_url_id", 6], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2019-01-06 16:20:03.275353') LIMIT $2[0m  [["shortened_url_id", 7], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2019-01-06 16:20:03.278712') LIMIT $2[0m  [["shortened_url_id", 8], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2019-01-06 16:20:03.281391') LIMIT $2[0m  [["shortened_url_id", 9], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2019-01-06 16:20:03.284572') LIMIT $2[0m  [["shortened_url_id", 10], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2019-01-06 16:20:03.288055') LIMIT $2[0m  [["shortened_url_id", 11], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2019-01-06 16:20:03.290533') LIMIT $2[0m  [["shortened_url_id", 12], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2019-01-06 16:20:03.293387') LIMIT $2[0m  [["shortened_url_id", 13], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2019-01-06 16:20:03.295450') LIMIT $2[0m  [["shortened_url_id", 17], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2019-01-06 16:20:03.297000') LIMIT $2[0m  [["shortened_url_id", 18], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2019-01-06 16:20:03.298797') LIMIT $2[0m  [["shortened_url_id", 19], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2019-01-06 16:20:03.299988') LIMIT $2[0m  [["shortened_url_id", 20], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2019-01-06 16:20:03.301098') LIMIT $2[0m  [["shortened_url_id", 24], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2019-01-06 16:20:03.302245') LIMIT $2[0m  [["shortened_url_id", 25], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2019-01-06 16:20:03.303338') LIMIT $2[0m  [["shortened_url_id", 26], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2019-01-06 16:20:03.304519') LIMIT $2[0m  [["shortened_url_id", 27], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2019-01-06 16:20:03.305743') LIMIT $2[0m  [["shortened_url_id", 28], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2019-01-06 16:20:03.307245') LIMIT $2[0m  [["shortened_url_id", 30], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2019-01-06 16:20:03.309379') LIMIT $2[0m  [["shortened_url_id", 31], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2019-01-06 16:20:03.310631') LIMIT $2[0m  [["shortened_url_id", 32], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2019-01-06 16:20:03.311675') LIMIT $2[0m  [["shortened_url_id", 33], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2019-01-06 16:20:03.312529') LIMIT $2[0m  [["shortened_url_id", 34], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls"[0m
+  [1m[36mVisit Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:21:07.557970') LIMIT $2[0m  [["shortened_url_id", 6], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:21:07.561130') LIMIT $2[0m  [["shortened_url_id", 7], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:21:07.563792') LIMIT $2[0m  [["shortened_url_id", 8], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:21:07.566917') LIMIT $2[0m  [["shortened_url_id", 9], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:21:07.569574') LIMIT $2[0m  [["shortened_url_id", 10], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:21:07.572479') LIMIT $2[0m  [["shortened_url_id", 11], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:21:07.575756') LIMIT $2[0m  [["shortened_url_id", 12], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:21:07.577936') LIMIT $2[0m  [["shortened_url_id", 13], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:21:07.580007') LIMIT $2[0m  [["shortened_url_id", 17], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:21:07.581673') LIMIT $2[0m  [["shortened_url_id", 18], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:21:07.583175') LIMIT $2[0m  [["shortened_url_id", 19], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:21:07.584582') LIMIT $2[0m  [["shortened_url_id", 20], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:21:07.585901') LIMIT $2[0m  [["shortened_url_id", 24], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:21:07.587211') LIMIT $2[0m  [["shortened_url_id", 25], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:21:07.588360') LIMIT $2[0m  [["shortened_url_id", 26], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:21:07.589438') LIMIT $2[0m  [["shortened_url_id", 27], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:21:07.590310') LIMIT $2[0m  [["shortened_url_id", 28], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:21:07.591202') LIMIT $2[0m  [["shortened_url_id", 30], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:21:07.592144') LIMIT $2[0m  [["shortened_url_id", 31], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:21:07.593279') LIMIT $2[0m  [["shortened_url_id", 32], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:21:07.594240') LIMIT $2[0m  [["shortened_url_id", 33], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:21:07.595068') LIMIT $2[0m  [["shortened_url_id", 34], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls"[0m
+  [1m[36mVisit Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:22:42.188987') LIMIT $2[0m  [["shortened_url_id", 6], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:22:42.192836') LIMIT $2[0m  [["shortened_url_id", 7], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:22:42.196600') LIMIT $2[0m  [["shortened_url_id", 8], ["LIMIT", 1]]
+  [1m[36mVisit Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:22:42.199644') LIMIT $2[0m  [["shortened_url_id", 9], ["LIMIT", 1]]
+  [1m[36mVisit Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:22:42.203002') LIMIT $2[0m  [["shortened_url_id", 10], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:22:42.207010') LIMIT $2[0m  [["shortened_url_id", 11], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:22:42.210506') LIMIT $2[0m  [["shortened_url_id", 12], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:22:42.212637') LIMIT $2[0m  [["shortened_url_id", 13], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:22:42.214348') LIMIT $2[0m  [["shortened_url_id", 17], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:22:42.215800') LIMIT $2[0m  [["shortened_url_id", 18], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:22:42.217225') LIMIT $2[0m  [["shortened_url_id", 19], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:22:42.218560') LIMIT $2[0m  [["shortened_url_id", 20], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:22:42.219665') LIMIT $2[0m  [["shortened_url_id", 24], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:22:42.220891') LIMIT $2[0m  [["shortened_url_id", 25], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:22:42.222484') LIMIT $2[0m  [["shortened_url_id", 26], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:22:42.223928') LIMIT $2[0m  [["shortened_url_id", 27], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:22:42.225880') LIMIT $2[0m  [["shortened_url_id", 28], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:22:42.227240') LIMIT $2[0m  [["shortened_url_id", 30], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:22:42.228342') LIMIT $2[0m  [["shortened_url_id", 31], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:22:42.229339') LIMIT $2[0m  [["shortened_url_id", 32], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:22:42.230470') LIMIT $2[0m  [["shortened_url_id", 33], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2018-01-06 16:22:42.231424') LIMIT $2[0m  [["shortened_url_id", 34], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.2ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls"[0m
+  [1m[36mVisit Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2015-01-07 16:22:55.412956') LIMIT $2[0m  [["shortened_url_id", 6], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2015-01-07 16:22:55.416486') LIMIT $2[0m  [["shortened_url_id", 7], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2015-01-07 16:22:55.419655') LIMIT $2[0m  [["shortened_url_id", 8], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2015-01-07 16:22:55.422999') LIMIT $2[0m  [["shortened_url_id", 9], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2015-01-07 16:22:55.425919') LIMIT $2[0m  [["shortened_url_id", 10], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2015-01-07 16:22:55.428010') LIMIT $2[0m  [["shortened_url_id", 11], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2015-01-07 16:22:55.429753') LIMIT $2[0m  [["shortened_url_id", 12], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2015-01-07 16:22:55.431138') LIMIT $2[0m  [["shortened_url_id", 13], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2015-01-07 16:22:55.432486') LIMIT $2[0m  [["shortened_url_id", 17], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2015-01-07 16:22:55.434253') LIMIT $2[0m  [["shortened_url_id", 18], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2015-01-07 16:22:55.435780') LIMIT $2[0m  [["shortened_url_id", 19], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2015-01-07 16:22:55.437390') LIMIT $2[0m  [["shortened_url_id", 20], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2015-01-07 16:22:55.439182') LIMIT $2[0m  [["shortened_url_id", 24], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2015-01-07 16:22:55.440301') LIMIT $2[0m  [["shortened_url_id", 25], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2015-01-07 16:22:55.441238') LIMIT $2[0m  [["shortened_url_id", 26], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2015-01-07 16:22:55.442266') LIMIT $2[0m  [["shortened_url_id", 27], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2015-01-07 16:22:55.443229') LIMIT $2[0m  [["shortened_url_id", 28], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2015-01-07 16:22:55.444278') LIMIT $2[0m  [["shortened_url_id", 30], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2015-01-07 16:22:55.445235') LIMIT $2[0m  [["shortened_url_id", 31], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2015-01-07 16:22:55.446267') LIMIT $2[0m  [["shortened_url_id", 32], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2015-01-07 16:22:55.447436') LIMIT $2[0m  [["shortened_url_id", 33], ["LIMIT", 1]]
+  [1m[36mVisit Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "visits" WHERE "visits"."shortened_url_id" = $1 AND (created_at <= '2015-01-07 16:22:55.450347') LIMIT $2[0m  [["shortened_url_id", 34], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.0ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls"[0m
+  [1m[36mShortenedUrl Load (2.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" INNER JOIN "visits" ON "visits"."shortened_url_id" = "shortened_urls"."id" WHERE (visits.created_at > '2018-01-06 16:27:53.097058')[0m
+  [1m[36mShortenedUrl Load (1.7ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" INNER JOIN "visits" ON "visits"."shortened_url_id" = "shortened_urls"."id"[0m
+  [1m[36mShortenedUrl Load (0.6ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mShortenedUrl Load (4.4ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" JOIN visits ON ShortenedUrls.id = visits.shortened_url_id WHERE (visits.created_at < '2019-01-06 16:37:31.852379')[0m
+  [1m[36mShortenedUrl Load (2.6ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" JOIN visits ON ShortenedUrls.id = visits.shortened_url_id WHERE (visits.created_at < '2019-01-06 16:37:31.852379') LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (3.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" JOIN visits ON ShortenedUrls.id = visits.shortened_url_id WHERE (visits.created_at < '2019-01-06 16:37:43.866985')[0m
+  [1m[35m (19.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" JOIN visits ON shortened_urls.id = visits.shortened_url_id WHERE (visits.created_at < '2019-01-06 16:38:30.055129')[0m
+  [1m[36mVisit Load (1.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" JOIN visits ON shortened_urls.id = visits.shortened_url_id WHERE (visits.created_at < '2019-12-14 21:13:28.560099')[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" JOIN visits ON shortened_urls.id = visits.shortened_url_id WHERE (visits.created_at > '2019-12-14 21:14:21.973989')[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "visits"[0m
+  [1m[36mVisit Load (0.9ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" JOIN visits ON shortened_urls.id = visits.shortened_url_id WHERE (visits.created_at < '2020-01-06 16:40:52.439620')[0m
+  [1m[36mShortenedUrl Load (2.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" JOIN visits ON shortened_urls.id = visits.shortened_url_id WHERE (visitis.created_at < '2020-01-06 16:47:26.730649')[0m
+  [1m[36mShortenedUrl Load (2.4ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" JOIN visits ON shortened_urls.id = visits.shortened_url_id WHERE (visitis.created_at < '2020-01-06 16:47:26.730649') LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mShortenedUrl Load (0.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" JOIN visits ON shortened_urls.id = visits.shortened_url_id WHERE (visits.created_at < '2020-01-06 16:48:01.434392')[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls"[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" JOIN visits ON shortened_urls.id = visits.shortened_url_id WHERE (visits.created_at < '2020-01-06 16:48:30.130174')[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" LEFT JOIN visits ON shortened_urls.id = visits.shortened_url_id WHERE (visits.created_at < '2020-01-06 16:49:02.898780')[0m
+  [1m[36mShortenedUrl Load (1.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" LEFT JOIN visits ON shortened_urls.id = visits.shortened_url_id[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" LEFT JOIN visits ON shortened_urls.id = visits.shortened_url_id[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls"[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" LEFT OUTER JOIN visits ON shortened_urls.id = visits.shortened_url_id[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" LEFT OUTER JOIN visits ON shortened_urls.id = visits.shortened_url_id WHERE (visits.created_at < '2020-01-06 16:55:27.580486')[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" LEFT OUTER JOIN visits ON shortened_urls.id = visits.shortened_url_id WHERE (visits.created_at < '2020-01-06 17:01:13.960716' OR visits.id = NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (25.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jefferson@cats.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (36.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "premium") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "jefferson@cats.com"], ["created_at", "2020-01-08 15:02:35.711079"], ["updated_at", "2020-01-08 15:02:35.711079"], ["premium", true]]
+  [1m[35m (22.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "muenster@cats.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["email", "muenster@cats.com"], ["created_at", "2020-01-08 15:02:48.293935"], ["updated_at", "2020-01-08 15:02:48.293935"]]
+  [1m[35m (34.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Exists (28.2ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "g32CJm7yqW0JtHPtkPhV9Q"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "www.boxes.com"], ["user_id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.6ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2020-01-08 15:01:59.688636')[0m  [["user_id", 8]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (14.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (5.5ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "g32CJm7yqW0JtHPtkPhV9Q"], ["long_url", "www.boxes.com"], ["user_id", 8], ["created_at", "2020-01-08 15:02:59.718307"], ["updated_at", "2020-01-08 15:02:59.718307"]]
+  [1m[35m (24.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "NI0GsVNI4C7gPy0kc4zGwA"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "www.meowmix.com"], ["user_id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.0ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2020-01-08 15:02:10.442148')[0m  [["user_id", 9]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mShortenedUrl Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "5TwWXQ-2DDp7UEZkcWb1Gg"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "www.smallrodents.com"], ["user_id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.2ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2020-01-08 15:02:21.014915')[0m  [["user_id", 9]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mShortenedUrl Load (0.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mShortenedUrl Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "LxgPJLJI-8ayjNRhGaS9fw"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "www.meowmix.com"], ["user_id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2020-01-08 15:03:47.923298')[0m  [["user_id", 9]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "luBZg1ZUxk8gPOPj42BcsQ"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "www.meowmix.com"], ["user_id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.4ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2020-01-08 15:06:46.575425')[0m  [["user_id", 9]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (0.3ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "luBZg1ZUxk8gPOPj42BcsQ"], ["long_url", "www.meowmix.com"], ["user_id", 9], ["created_at", "2020-01-08 15:07:46.584779"], ["updated_at", "2020-01-08 15:07:46.584779"]]
+  [1m[35m (50.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "9-IBA1-1lJF35ybQQlQiOQ"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "www.smallrodents.com"], ["user_id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.6ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2020-01-08 15:06:58.214202')[0m  [["user_id", 9]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (0.4ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "9-IBA1-1lJF35ybQQlQiOQ"], ["long_url", "www.smallrodents.com"], ["user_id", 9], ["created_at", "2020-01-08 15:07:58.219668"], ["updated_at", "2020-01-08 15:07:58.219668"]]
+  [1m[35m (40.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.2ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  [1m[36mVisit Create (71.4ms)[0m  [1m[32mINSERT INTO "visits" ("user_id", "shortened_url_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 8], ["shortened_url_id", 35], ["created_at", "2020-01-08 15:09:44.497274"], ["updated_at", "2020-01-08 15:09:44.497274"]]
+  [1m[35m (42.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "WV8uOrf7zV8SnVA0hDXfHQ"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "www.meowmix.com"], ["user_id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2020-01-08 15:09:39.778902')[0m  [["user_id", 9]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.7ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.6ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  [1m[36mVisit Create (0.7ms)[0m  [1m[32mINSERT INTO "visits" ("user_id", "shortened_url_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 8], ["shortened_url_id", 35], ["created_at", "2020-01-08 15:11:47.309264"], ["updated_at", "2020-01-08 15:11:47.309264"]]
+  [1m[35m (38.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.6ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  [1m[36mVisit Create (0.8ms)[0m  [1m[32mINSERT INTO "visits" ("user_id", "shortened_url_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 8], ["shortened_url_id", 36], ["created_at", "2020-01-08 15:12:57.493067"], ["updated_at", "2020-01-08 15:12:57.493067"]]
+  [1m[35m (49.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Load (0.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls"[0m
+  [1m[36mShortenedUrl Load (17.6ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" INNER JOIN "users" ON "users"."id" = "shortened_urls"."user_id" LEFT JOIN visits ON shortened_urls.id = visits.shortened_url_id WHERE ((shortened_urls.id IN (
+               SELECT shortened_urls.id
+               FROM shortened_urls
+               JOIN visits
+               ON shortened_urls.id = visits.shortened_url_id
+               GROUP BY shortened_urls.id
+               HAVING MAX(visits.created_at) < '2020-01-08 15:03:44 UTC'
+           ) OR (
+               visits.id IS NULL and shortened_urls.created_at < '2020-01-08 15:03:44 UTC'
+           )) AND users.premium = 'f')[0m
+  [1m[36mShortenedUrl Load (3.0ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" INNER JOIN "users" ON "users"."id" = "shortened_urls"."user_id" LEFT JOIN visits ON shortened_urls.id = visits.shortened_url_id WHERE ((shortened_urls.id IN (
+               SELECT shortened_urls.id
+               FROM shortened_urls
+               JOIN visits
+               ON shortened_urls.id = visits.shortened_url_id
+               GROUP BY shortened_urls.id
+               HAVING MAX(visits.created_at) < '2020-01-08 15:04:28 UTC'
+           ) OR (
+               visits.id IS NULL and shortened_urls.created_at < '2020-01-08 15:04:28 UTC'
+           )) AND users.premium = 'f')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.5ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 6]]
+  [1m[35m (34.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.3ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.2ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.2ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.2ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.2ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 7]]
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.3ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 8]]
+  [1m[35m (7.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.3ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 9]]
+  [1m[35m (7.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.3ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 9]]
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.3ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 10]]
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.2ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 11]]
+  [1m[35m (7.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.4ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 12]]
+  [1m[35m (7.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.3ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 13]]
+  [1m[35m (7.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.3ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 17]]
+  [1m[35m (7.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.3ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 18]]
+  [1m[35m (7.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.2ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 19]]
+  [1m[35m (7.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.3ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 20]]
+  [1m[35m (7.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.3ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 24]]
+  [1m[35m (7.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.3ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 25]]
+  [1m[35m (7.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.2ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 26]]
+  [1m[35m (7.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.3ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 27]]
+  [1m[35m (7.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.2ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 28]]
+  [1m[35m (7.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Load (0.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls"[0m
+  [1m[36mShortenedUrl Load (2.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" INNER JOIN "users" ON "users"."id" = "shortened_urls"."user_id" LEFT JOIN visits ON shortened_urls.id = visits.shortened_url_id WHERE ((shortened_urls.id IN (
+               SELECT shortened_urls.id
+               FROM shortened_urls
+               JOIN visits
+               ON shortened_urls.id = visits.shortened_url_id
+               GROUP BY shortened_urls.id
+               HAVING MAX(visits.created_at) < '2020-01-08 15:16:57 UTC'
+           ) OR (
+               visits.id IS NULL and shortened_urls.created_at < '2020-01-08 15:16:57 UTC'
+           )) AND users.premium = 'f')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.8ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 36]]
+  [1m[35m (33.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.7ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 37]]
+  [1m[35m (5.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Load (0.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls"[0m
+  [1m[36mShortenedUrl Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "YQ97RjLQx39lIvhVPoNK7w"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "www.meowmix.com"], ["user_id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.5ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2020-01-08 15:17:31.377004')[0m  [["user_id", 9]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (0.3ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "YQ97RjLQx39lIvhVPoNK7w"], ["long_url", "www.meowmix.com"], ["user_id", 9], ["created_at", "2020-01-08 15:18:31.381701"], ["updated_at", "2020-01-08 15:18:31.381701"]]
+  [1m[35m (37.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "toD4fB-Ej4CKbkh8h0ApFg"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "www.meowmix.com"], ["user_id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2020-01-08 15:17:55.249878')[0m  [["user_id", 9]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mShortenedUrl Load (1.0ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls"[0m
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" ORDER BY "shortened_urls"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.3ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  [1m[36mVisit Create (0.4ms)[0m  [1m[32mINSERT INTO "visits" ("user_id", "shortened_url_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 9], ["shortened_url_id", 38], ["created_at", "2020-01-08 15:20:27.083547"], ["updated_at", "2020-01-08 15:20:27.083547"]]
+  [1m[35m (37.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.7ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  [1m[36mVisit Create (0.7ms)[0m  [1m[32mINSERT INTO "visits" ("user_id", "shortened_url_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 9], ["shortened_url_id", 38], ["created_at", "2020-01-08 15:23:24.918498"], ["updated_at", "2020-01-08 15:23:24.918498"]]
+  [1m[35m (37.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Load (2.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" INNER JOIN "users" ON "users"."id" = "shortened_urls"."user_id" LEFT JOIN visits ON shortened_urls.id = visits.shortened_url_id WHERE ((shortened_urls.id IN (
+               SELECT shortened_urls.id
+               FROM shortened_urls
+               JOIN visits
+               ON shortened_urls.id = visits.shortened_url_id
+               GROUP BY shortened_urls.id
+               HAVING MAX(visits.created_at) < '2020-01-08 15:22:37 UTC'
+           ) OR (
+               visits.id IS NULL and shortened_urls.created_at < '2020-01-08 15:22:37 UTC'
+           )) AND users.premium = 'f')[0m
+  [1m[36mShortenedUrl Load (1.1ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls"[0m
+  [1m[36mShortenedUrl Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "F2p9oUbU3LI9qJJ8JBBvyw"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "www.meowmix.com"], ["user_id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.9ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2020-01-08 15:59:42.598357')[0m  [["user_id", 9]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mShortenedUrl Load (2.7ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" INNER JOIN "users" ON "users"."id" = "shortened_urls"."user_id" LEFT JOIN visits ON shortened_urls.id = visits.shortened_url_id WHERE ((shortened_urls.id IN (
+               SELECT shortened_urls.id
+               FROM shortened_urls
+               JOIN visits
+               ON shortened_urls.id = visits.shortened_url_id
+               GROUP BY shortened_urls.id
+               HAVING MAX(visits.created_at) < '2020-01-08 16:00:02 UTC'
+           ) OR (
+               visits.id IS NULL and shortened_urls.created_at < '2020-01-08 16:00:02 UTC'
+           )) AND users.premium = 'f')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.8ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 38]]
+  [1m[35m (79.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Destroy (0.7ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 38]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Load (1.1ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls"[0m
+  [1m[36mShortenedUrl Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "5dixhySgbcjVlofXSFqGww"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "www.meowmix.com"], ["user_id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.8ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2020-01-08 16:00:25.950403')[0m  [["user_id", 9]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (0.8ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "5dixhySgbcjVlofXSFqGww"], ["long_url", "www.meowmix.com"], ["user_id", 9], ["created_at", "2020-01-08 16:01:25.960538"], ["updated_at", "2020-01-08 16:01:25.960538"]]
+  [1m[35m (70.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."short_url" = $1 LIMIT $2[0m  [["short_url", "oq7VyVaD3WOjdbVRLUTbTg"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortenedUrl Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "shortened_urls" WHERE "shortened_urls"."long_url" = $1 AND "shortened_urls"."user_id" = $2 LIMIT $3[0m  [["long_url", "www.smallrodents.com"], ["user_id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (0.7ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1 AND (created_at <= '2020-01-08 16:00:38.489521')[0m  [["user_id", 9]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "shortened_urls" WHERE "shortened_urls"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mShortenedUrl Create (0.5ms)[0m  [1m[32mINSERT INTO "shortened_urls" ("short_url", "long_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["short_url", "oq7VyVaD3WOjdbVRLUTbTg"], ["long_url", "www.smallrodents.com"], ["user_id", 9], ["created_at", "2020-01-08 16:01:38.497811"], ["updated_at", "2020-01-08 16:01:38.497811"]]
+  [1m[35m (10.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortenedUrl Load (0.4ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" ORDER BY "shortened_urls"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mShortenedUrl Load (1.6ms)[0m  [1m[34mSELECT "shortened_urls".* FROM "shortened_urls" INNER JOIN "users" ON "users"."id" = "shortened_urls"."user_id" LEFT JOIN visits ON shortened_urls.id = visits.shortened_url_id WHERE ((shortened_urls.id IN (
+               SELECT shortened_urls.id
+               FROM shortened_urls
+               JOIN visits
+               ON shortened_urls.id = visits.shortened_url_id
+               GROUP BY shortened_urls.id
+               HAVING MAX(visits.created_at) < '2020-01-08 16:06:21 UTC'
+           ) OR (
+               visits.id IS NULL and shortened_urls.created_at < '2020-01-08 16:06:21 UTC'
+           )) AND users.premium = 'f')[0m
+  ↳ app/models/shortened_url.rb:83
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/shortened_url.rb:83
+  [1m[36mVisit Load (0.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 39]]
+  ↳ app/models/shortened_url.rb:83
+  [1m[36mTagging Load (46.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."shortened_url_id" = $1[0m  [["shortened_url_id", 39]]
+  ↳ app/models/shortened_url.rb:83
+  [1m[36mShortenedUrl Destroy (0.5ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 39]]
+  ↳ app/models/shortened_url.rb:83
+  [1m[35m (38.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/shortened_url.rb:83
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/shortened_url.rb:83
+  [1m[36mVisit Load (0.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."shortened_url_id" = $1[0m  [["shortened_url_id", 40]]
+  ↳ app/models/shortened_url.rb:83
+  [1m[36mTagging Load (0.5ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."shortened_url_id" = $1[0m  [["shortened_url_id", 40]]
+  ↳ app/models/shortened_url.rb:83
+  [1m[36mShortenedUrl Destroy (0.6ms)[0m  [1m[31mDELETE FROM "shortened_urls" WHERE "shortened_urls"."id" = $1[0m  [["id", 40]]
+  ↳ app/models/shortened_url.rb:83
+  [1m[35m (9.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/shortened_url.rb:83
+  [1m[36mShortenedUrl Load (0.4ms)[0m  [1m[34mSELECT  "shortened_urls".* FROM "shortened_urls" ORDER BY "shortened_urls"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]

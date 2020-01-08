@@ -18,7 +18,8 @@ class TagTopic < ApplicationRecord
     has_many :shortened_urls,
         primary_key: :id,
         foreign_key: :tag_topic_id,
-        class_name: 'Tagging'
+        class_name: 'Tagging',
+        dependent: :destroy
 
     has_many :urls,
         through: :shortened_urls,
